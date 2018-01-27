@@ -92,7 +92,7 @@
           title: 'My Tours',
           path: '/'
         }, {
-          icon: 'create',
+          icon: 'directions_walk',
           title: 'Search Tours',
           path: '/searchTours'
         }],
