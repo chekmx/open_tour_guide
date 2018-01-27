@@ -1,5 +1,5 @@
 <template>
-  <v-app light>
+  <v-app dark>
     <v-navigation-drawer
       fixed
       :mini-variant="miniVariant"
@@ -10,7 +10,7 @@
       <v-list>
         <v-list-tile
           value="true"
-          v-for="(item, i) in items"
+          v-for="(item, i) in items" :to="{path: item.path}"
           :key="i"
           exact
         >
@@ -88,13 +88,18 @@
         drawer: true,
         fixed: false,
         items: [{
-          icon: 'bubble_chart',
-          title: 'Inspire'
+          icon: 'create',
+          title: 'My Tours',
+          path: '/'
+        }, {
+          icon: 'create',
+          title: 'Search Tours',
+          path: '/searchTours'
         }],
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'Open Tours'
       }
     }
   }
