@@ -3,11 +3,15 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
+import Vue2Leaflet from 'vue2-leaflet'
 
 import App from './App'
 import router from './router'
 
 Vue.use(Vuetify)
+Vue.component('v-map', Vue2Leaflet.Map)
+Vue.component('v-tilelayer', Vue2Leaflet.TileLayer)
+Vue.component('v-marker', Vue2Leaflet.Marker)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

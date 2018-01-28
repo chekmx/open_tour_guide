@@ -1,5 +1,7 @@
-
-<section class="search-tours">
-  <h1>search-tours Component</h1>
-</section>
+<div id="app" style="height: 100%">
+  <v-map :zoom="zoom" :center="center">
+    <v-tilelayer :url="url" :attribution="attribution"></v-tilelayer>
+    <v-marker :lat-lng="marker"></v-marker>
+  </v-map>
+</div>
 
