@@ -1,6 +1,13 @@
+import L from 'leaflet'
+import Vue2Leaflet from 'vue2-leaflet'
+
 export default {
   name: 'search-tours',
-  components: {},
+  components: {
+    'v-map': Vue2Leaflet.Map,
+    'v-tilelayer': Vue2Leaflet.TileLayer,
+    'v-marker': Vue2Leaflet.Marker
+  },
   props: [],
   data () {
     return {
@@ -15,7 +22,7 @@ export default {
 
   },
   mounted () {
-
+    setTimeout(function () { window.dispatchEvent(new Event('resize')) }, 250)
   },
   methods: {
 
