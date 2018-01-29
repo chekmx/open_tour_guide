@@ -1,5 +1,73 @@
+<div>
+  <v-map style="height: 90%" :zoom="zoom" :bounds="bounds" :center="center" :min-zoom="minZoom" :max-zoom="maxZoom" v-on:l-zoomanim="zoomChanged">
+    <v-tilelayer :url="tileProvider.url" :attribution="tileProvider.attribution" :token="token"></v-tilelayer>
+    <v-marker v-for="item in markers" :key="item.id" :lat-lng="item.position" :visible="item.visible" :draggable="item.draggable"
+    v-on:l-click="alert(item)" v-on:l-move="markerMoved($event, item)" >
+      <v-popup :content="item.tooltip"></v-popup>
+      <v-tooltip :content="item.tooltip"></v-tooltip>
+    </v-marker>
+    <!-- <v-poly v-for="item in polylines" :key="item.id" :lat-lngs="item.points" :visible="item.visible" v-on:l-click="alert(item)"></v-poly>
+    <v-group v-for="item in stuff" :key="item.id" :visible="item.visible">
+      <v-group :visible="item.markersVisible">
+        <v-marker v-for="marker in item.markers" :key="marker.id" :visible="marker.visible" :draggable="marker.draggable" :lat-lng="marker.position" v-on:l-click="alert(marker)">
+        </v-marker>
+      </v-group>
+      <v-poly :lat-lngs="item.polyline.points" :visible="item.polyline.visible" v-on:l-click="alert(item.polyline)"></v-poly>
+    </v-group> -->
+  </v-map>
+  <div style="height: 10%; overflow: auto;">
+    <h3>Some examples</h3>
+  </div>
+  <!-- <div style="height: 45%; overflow: auto;">
+    Zoom Level :
+    <input v-model.number="zoom" type="number">
+    <button name="button" v-on:click="fitPolyline">Fit map to polyline</button>
+    <br>
+    Tile Provider:
+    <select v-model="tileProvider">
+      <option v-for="provider in tileProviders" :value="provider">{{provider.name}}</option>
+    </select>
+    <hr/>
+    <h3>List of Markers</h3>
+    <button name="button" v-on:click="addMarker">Add a marker</button></br>
+    <table>
+      <tr>
+        <th>Marker</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Tooltip</th>
+        <th>Is Draggable ?</th>
+        <th>Is Visible ?</th>
+        <th>Remove</th>
+      </tr>
 
-<section class="my-tours">
-  <h1>my-tours Component</h1>
-</section>
+      <tr v-for="(item, index) in markers">
+        <td>{{"Marker " + (index + 1)}}</td>
+        <td><input v-model.number="item.position.lat" type="number"></td>
+        <td><input v-model.number="item.position.lng" type="number"></td>
+        <td><input v-model="item.tooltip" type="text"></td>
+        <td style="text-align: center"><input v-model="item.draggable" type="checkbox"></td>
+        <td style="text-align: center"><input v-model="item.visible" type="checkbox"></td>
+        <td style="text-align: center"><input v-on:click="removeMarker(index)" type="button" value='X'></td>
+      </tr>
+    </table>
+    <hr/>
+    <table>
+      <tr>
+        <th>Layer</th>
+        <th>Is Visible ?</th>
+        <th>Are Markers visible ?</th>
+        <th>Is Polyline visible ?</th>
+      </tr>
+
+      <tr v-for="(item, index) in stuff">
+        <td>{{"Layer " + (index + 1)}}</td>
+        <td style="text-align: center"><input v-model="item.visible" type="checkbox"></td>
+        <td style="text-align: center"><input v-model="item.markersVisible" type="checkbox"></td>
+        <td style="text-align: center"><input v-model="item.polyline.visible" type="checkbox"></td>
+      </tr>
+    </table>
+    <hr/>
+  </div> -->
+</div>
 

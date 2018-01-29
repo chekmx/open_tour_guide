@@ -5,6 +5,8 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.css'
 import L from 'leaflet'
 import Vue2Leaflet from 'vue2-leaflet'
+import icon from 'leaflet/dist/images/marker-icon.png'
+import iconShadow from 'leaflet/dist/images/marker-shadow.png'
 
 import App from './App'
 import router from './router'
@@ -31,3 +33,10 @@ L.Icon.Default.mergeOptions({
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 })
+
+let DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow
+})
+
+L.Marker.prototype.options.icon = DefaultIcon
